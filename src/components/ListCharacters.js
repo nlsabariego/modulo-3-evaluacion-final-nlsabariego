@@ -1,10 +1,14 @@
 import React from "react";
 import Character from "./Character";
 
-function ListCharacters() {
+function ListCharacters(props) {
+  console.log(props);
+
   return (
     <ul className='cards'>
-      <Character />
+      {props.characters.map(character => {
+        return <Character key={character.id} character={character} />;
+      })}
     </ul>
   );
 }
