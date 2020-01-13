@@ -2,6 +2,12 @@
   padding: 0rem;
   margin: 0rem;
 }
-.app {
+
+a:link {
+  text-decoration: none;
+}
+
+html {
   background: black;
+  height: 100vh;
 }

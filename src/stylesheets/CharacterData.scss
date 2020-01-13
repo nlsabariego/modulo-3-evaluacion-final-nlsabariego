@@ -1,0 +1,50 @@
+.characterData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardData {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.1875rem solid #058b7e;
+  max-width: 35rem;
+  overflow: hidden;
+  list-style: none;
+  background: #058b7e;
+
+  &__description {
+    display: block;
+    margin: 0;
+    padding: 0.3rem 1rem;
+    font-size: 1rem;
+    color: rgb(37, 33, 33);
+  }
+}
+
+.card__img {
+  width: 100%;
+}
+
+.form__btn {
+  margin: 0.25rem;
+  padding: 0.35rem 0.8rem;
+  text-align: center;
+  background-color: #058b7e;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  vertical-align: middle;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: rgb(37, 33, 33);
+}
