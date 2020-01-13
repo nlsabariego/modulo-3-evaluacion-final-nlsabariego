@@ -1,9 +1,8 @@
 import React from "react";
 import Character from "./Character";
+import "../stylesheets/ListCharacters.scss";
 
 function ListCharacters(props) {
-  console.log(props);
-
   return (
     <ul className='cards'>
       {props.characters.map(character => {

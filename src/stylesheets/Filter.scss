@@ -1,0 +1,22 @@
+.filter {
+  display: flex;
+  justify-content: center;
+  &__input-text {
+    margin: 0.25rem;
+    padding: 0.3rem;
+    background-color: rgb(37, 33, 33);
+    border: solid 1px rgb(32, 247, 32);
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    outline: none;
+    vertical-align: middle;
+  }
+}
+
+.filter__input-text::placeholder {
+  color: rgb(32, 247, 32);
+}
+
+.filter__input-text:focus {
+  background-color: #ccc;
+}

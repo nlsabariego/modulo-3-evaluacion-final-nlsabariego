@@ -1,10 +1,11 @@
 import React from "react";
-import Header from "./Header";
-import Filters from "./Filter";
 import { Route, Switch } from "react-router-dom";
 import apiCharacters from "../api/characters";
+import Header from "./Header";
+import Filters from "./Filter";
 import CharacterData from "./CharacterData";
 import ListCharacters from "./ListCharacters";
+import "../stylesheets/App.scss";
 
 class App extends React.Component {
   constructor(props) {
@@ -50,10 +51,8 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.characters, this.state.search, this.filterBySearch());
-
     return (
-      <div>
+      <div className='app'>
         <Header />
         <Switch>
           <Route exact path='/'>

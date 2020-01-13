@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function CharacterData(props) {
-  console.log(props.character);
   const { image, name, status, species, origin, episode } = props.character;
 
   return (

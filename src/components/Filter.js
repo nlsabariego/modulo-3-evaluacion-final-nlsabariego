@@ -1,7 +1,7 @@
 import React from "react";
+import "../stylesheets/Filter.scss";
 
 function Filters(props) {
-  console.log(props);
   const handleSearch = ev => {
     props.handleSearch({
       value: ev.target.value
@@ -9,8 +9,8 @@ function Filters(props) {
   };
 
   return (
-    <div>
-      <input type='text' placeholder='Busca aquí el personaje' className='form__input-text' onChange={handleSearch} />
+    <div className='filter'>
+      <input type='text' placeholder='Busca aquí el personaje' className='filter__input-text' onChange={handleSearch} />
     </div>
   );
 }
