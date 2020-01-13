@@ -4,6 +4,7 @@ import Filters from "./Filter";
 import { Route, Switch } from "react-router-dom";
 import apiCharacters from "../api/characters";
 import CharacterData from "./CharacterData";
+import ListCharacters from "./ListCharacters";
 
 class App extends React.Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.characters);
+    console.log(this.state.characters, this.state.search, this.filterBySearch());
 
     return (
       <div>
@@ -57,6 +58,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/'>
             <Filters filter={this.filterBySearch()} characters={this.state.characters} handleSearch={this.handleSearch} />
+            <ListCharacters characters={this.filterBySearch()} />
           </Route>
           <Route path='/character/:id' render={this.renderCharacter} />
         </Switch>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function CharacterData(props) {
   console.log(props.character);
@@ -6,7 +7,9 @@ function CharacterData(props) {
 
   return (
     <div>
-      <button className='form__btn'>Volver</button>
+      <Link to='/'>
+        <button className='form__btn'>Volver</button>
+      </Link>
       <div className='cards'>
         <img src={image} alt={name} />
         <div>
