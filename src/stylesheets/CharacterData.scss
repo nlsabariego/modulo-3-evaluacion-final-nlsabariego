@@ -13,18 +13,19 @@
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
-  border: 0.1875rem solid #058b7e;
-  width: 40rem;
+  border: 0.1875rem solid #36b0c7;
+  max-width: 40rem;
   overflow: hidden;
   list-style: none;
-  background: #058b7e;
+  background: rgb(23, 255, 23);
 
   &__description {
     display: block;
     margin: 0;
     padding: 0.3rem 1rem;
-    font-size: 1rem;
-    color: rgb(37, 33, 33);
+    font-size: 1.1rem;
+    font-weight: bolder;
+    color: rgb(155, 2, 155);
   }
 }
 
@@ -36,8 +37,8 @@
   margin: 0.25rem;
   padding: 0.35rem 0.8rem;
   text-align: center;
-  background-color: #058b7e;
-  border: none;
+  background-color: #36b0c7;
+  border: solid 2px rgb(23, 255, 23);
   border-radius: 0.3rem;
   cursor: pointer;
   font-size: 0.8rem;
@@ -45,8 +46,9 @@
   font-weight: 700;
   text-align: center;
   text-decoration: none;
+  text-transform: uppercase;
   outline: none;
-  color: rgb(37, 33, 33);
+  color: rgb(155, 2, 155);
 }
 
 .heart-icon {

@@ -1,6 +1,7 @@
 import React from "react";
 import Character from "./Character";
 import "../stylesheets/ListCharacters.scss";
+import PropTypes from "prop-types";
 
 function ListCharacters(props) {
   return (
@@ -11,5 +12,9 @@ function ListCharacters(props) {
     </ul>
   );
 }
+
+ListCharacters.propTypes = {
+  characters: PropTypes.array
+};
 
 export default ListCharacters;

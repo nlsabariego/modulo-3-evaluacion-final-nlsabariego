@@ -2,8 +2,10 @@
   display: flex;
   justify-content: center;
   &__input-text {
-    margin: 0.25rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     padding: 0.3rem;
+    width: 35rem;
     background-color: rgb(37, 33, 33);
     border: solid 1px rgb(79, 236, 79);
     border-radius: 0.3rem;
@@ -16,6 +18,8 @@
 
 .filter__input-text::placeholder {
   color: rgb(79, 236, 79);
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .filter__input-text:focus {

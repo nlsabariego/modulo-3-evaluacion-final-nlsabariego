@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "../stylesheets/Character.scss";
 
 function Character(props) {
@@ -15,5 +16,12 @@ function Character(props) {
     </Link>
   );
 }
+
+Character.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  species: PropTypes.string,
+  image: PropTypes.string
+};
 
 export default Character;

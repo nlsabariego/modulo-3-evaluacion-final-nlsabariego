@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "../stylesheets/CharacterData.scss";
 import { GiAlienStare, GiSkullCrossedBones, GiHeartBeats } from "react-icons/gi";
 import { IoMdPerson } from "react-icons/io";
@@ -45,5 +46,14 @@ function CharacterData(props) {
     </div>
   );
 }
+
+CharacterData.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  status: PropTypes.string,
+  species: PropTypes.string,
+  origin: PropTypes.string,
+  episode: PropTypes.string
+};
 
 export default CharacterData;
