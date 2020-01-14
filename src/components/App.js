@@ -56,7 +56,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path='/'>
-            <Filters filter={this.filterBySearch()} characters={this.state.characters} handleSearch={this.handleSearch} />
+            <Filters filter={this.filterBySearch()} characters={this.state.characters} handleSearch={this.handleSearch} value={this.state.search} />
             <ListCharacters characters={this.filterBySearch()} />
           </Route>
           <Route path='/character/:id' render={this.renderCharacter} />

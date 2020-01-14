@@ -10,7 +10,7 @@ function Filters(props) {
 
   return (
     <div className='filter'>
-      <input type='text' placeholder='Busca aquí el personaje' className='filter__input-text' onChange={handleSearch} />
+      <input type='text' placeholder='Busca aquí el personaje' className='filter__input-text' onChange={handleSearch} value={props.value} />
     </div>
   );
 }
