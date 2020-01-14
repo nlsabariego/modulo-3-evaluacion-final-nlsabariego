@@ -9,9 +9,20 @@ function Filter(props) {
     });
   };
 
+  const handleGender = ev => {
+    props.handleGender({
+      value: ev.target.value
+    });
+  };
+
   return (
     <div className='filter'>
       <input type='text' placeholder='Busca aquí el personaje' className='filter__input-text' onChange={handleSearch} value={props.value} />
+      <select name='gender' onChange={handleGender} value={props.gender}>
+        <option value='Male'>Male</option>
+        <option value='Famale'>Famale</option>
+        <option value='unknown'>Unknown</option>
+      </select>
     </div>
   );
 }

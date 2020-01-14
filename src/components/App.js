@@ -12,7 +12,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       characters: [],
-      search: ""
+      search: "",
+      gender: ""
     };
     this.renderCharacter = this.renderCharacter.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -26,9 +27,15 @@ class App extends React.Component {
 
   filterBySearch() {
     return this.state.characters.filter(character => {
-      return character.name.includes(this.state.search);
+      return character.name.includes(this.state.search) || character.gender.includes(this.state.gender);
     });
   }
+
+  // filterByGender() {
+  //   return this.state.characters.filter(character => {
+  //     return character.gender.includes(this.state.gender);
+  //   });
+  // }
 
   //eventos
 
@@ -37,7 +44,11 @@ class App extends React.Component {
       search: data.value
     });
   }
-
+  handleGender(data) {
+    this.setState({
+      gender: data.value
+    });
+  }
   //render
 
   renderCharacter(props) {
@@ -56,7 +67,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path='/'>
-            <Filter filter={this.filterBySearch()} characters={this.state.characters} handleSearch={this.handleSearch} value={this.state.search} />
+            <Filter filter={this.filterBySearch()} characters={this.state.characters} handleSearch={this.handleSearch} handleGender={this.handleGender} value={this.state.search} />
             <ListCharacters characters={this.filterBySearch()} />
           </Route>
           <Route path='/character/:id' render={this.renderCharacter} />
