@@ -6,6 +6,7 @@ import Filter from "./Filter";
 import CharacterData from "./CharacterData";
 import ListCharacters from "./ListCharacters";
 import "../stylesheets/App.scss";
+import FilterGender from "./FilterGender";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,10 +14,11 @@ class App extends React.Component {
     this.state = {
       characters: [],
       search: "",
-      gender: ""
+      gender: "all"
     };
     this.renderCharacter = this.renderCharacter.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleGender = this.handleGender.bind(this);
   }
 
   componentDidMount() {
@@ -26,24 +28,23 @@ class App extends React.Component {
   //ayudantes
 
   filterBySearch() {
-    return this.state.characters.filter(character => {
-      return character.name.includes(this.state.search) || character.gender.includes(this.state.gender);
-    });
+    return this.state.characters
+      .filter(character => {
+        return character.name.includes(this.state.search);
+      })
+      .filter(character => {
+        console.log(character.species);
+
+        return this.state.gender === "all" ? true : character.gender === this.state.gender;
+      });
   }
-
-  // filterByGender() {
-  //   return this.state.characters.filter(character => {
-  //     return character.gender.includes(this.state.gender);
-  //   });
-  // }
-
-  //eventos
 
   handleSearch(data) {
     this.setState({
       search: data.value
     });
   }
+
   handleGender(data) {
     this.setState({
       gender: data.value
@@ -62,12 +63,15 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.characters);
+
     return (
       <div className='app'>
         <Header />
         <Switch>
           <Route exact path='/'>
-            <Filter filter={this.filterBySearch()} characters={this.state.characters} handleSearch={this.handleSearch} handleGender={this.handleGender} value={this.state.search} />
+            <FilterGender handleGender={this.handleGender} value={this.state.gender} />
+            <Filter handleSearch={this.handleSearch} value={this.state.search} />
             <ListCharacters characters={this.filterBySearch()} />
           </Route>
           <Route path='/character/:id' render={this.renderCharacter} />
