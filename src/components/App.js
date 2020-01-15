@@ -7,6 +7,7 @@ import CharacterData from "./CharacterData";
 import ListCharacters from "./ListCharacters";
 import "../stylesheets/App.scss";
 import FilterGender from "./FilterGender";
+import FilterSpecies from "./FilterSpecies";
 
 class App extends React.Component {
   constructor(props) {
@@ -14,11 +15,13 @@ class App extends React.Component {
     this.state = {
       characters: [],
       search: "",
-      gender: "all"
+      gender: "all",
+      checked: ""
     };
     this.renderCharacter = this.renderCharacter.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleGender = this.handleGender.bind(this);
+    this.handleSpecies = this.handleSpecies.bind(this);
   }
 
   componentDidMount() {
@@ -30,12 +33,13 @@ class App extends React.Component {
   filterBySearch() {
     return this.state.characters
       .filter(character => {
-        return character.name.includes(this.state.search);
+        return character.name.toLowerCase().includes(this.state.search.toLowerCase());
       })
       .filter(character => {
-        console.log(character.species);
-
         return this.state.gender === "all" ? true : character.gender === this.state.gender;
+      })
+      .filter(character => {
+        return this.state.checked === "" ? true : character.species === this.state.checked;
       });
   }
 
@@ -50,6 +54,13 @@ class App extends React.Component {
       gender: data.value
     });
   }
+
+  handleSpecies(data) {
+    this.setState({
+      checked: data.value
+    });
+  }
+
   //render
 
   renderCharacter(props) {
@@ -71,6 +82,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/'>
             <FilterGender handleGender={this.handleGender} value={this.state.gender} />
+            <FilterSpecies handleSpecies={this.handleSpecies} checked={this.state.checked} />
             <Filter handleSearch={this.handleSearch} value={this.state.search} />
             <ListCharacters characters={this.filterBySearch()} />
           </Route>

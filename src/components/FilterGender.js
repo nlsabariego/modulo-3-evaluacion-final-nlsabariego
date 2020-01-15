@@ -9,10 +9,6 @@ function FilterGender(props) {
     });
   };
 
-  //   const filterByGender = () => {
-  //     return props.characters.filter(character => (props.value === "all" ? true : character.gender === props.value));
-  //   };
-
   return (
     <div className='filter'>
       <select name='gender' onChange={handleGender} value={props.value}>
